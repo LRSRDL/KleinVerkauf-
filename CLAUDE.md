@@ -52,4 +52,7 @@ Für jede Funktion:
 - Bezeichner im Code auf Englisch (`Item`, `Defect`, `Photo`, `ListingDraft`), UI-Texte auf Deutsch.
 - Tests mit Swift Testing (`import Testing`), Modelltests mit `AppSchema.inMemoryContainer()`.
 - Services bekommen Wertkopien (`ItemSnapshot`, `ListingCandidate`), keine `@Model`-Objekte.
-- Build und Tests: `xcodebuild test -project KleinVerkauf.xcodeproj -scheme KleinVerkauf -destination 'platform=iOS Simulator,name=iPhone 16'`
+- Der App-Code liegt in `KleinVerkauf.swiftpm/App` (Swift-Playgrounds-App-Paket). Der Nutzer hat nur ein iPad und startet die App in Swift Playgrounds; kein Asset-Katalog, App-Icon über `Package.swift`.
+- `KleinVerkauf.xcodeproj` bindet denselben Ordner ein und existiert nur für Tests; neue Dateien in `App/` landen automatisch in beiden.
+- Tests laufen in GitHub Actions (`.github/workflows/ci.yml`), nicht lokal.
+- Build und Tests mit Xcode: `xcodebuild test -project KleinVerkauf.xcodeproj -scheme KleinVerkauf -destination 'platform=iOS Simulator,name=iPhone 16'`

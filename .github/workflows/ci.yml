@@ -29,3 +29,11 @@ jobs:
             -scheme KleinVerkauf \
             -destination "id=${{ steps.sim.outputs.udid }}" \
             CODE_SIGNING_ALLOWED=NO
+
+      - name: Playgrounds-Paket bauen
+        working-directory: KleinVerkauf.swiftpm
+        run: |
+          xcodebuild build \
+            -scheme KleinVerkauf \
+            -destination "id=${{ steps.sim.outputs.udid }}" \
+            CODE_SIGNING_ALLOWED=NO
